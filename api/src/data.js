@@ -5,7 +5,9 @@ const URL= 'https://api.thedogapi.com/v1/breeds'
 const { Dog, Temperament } = require('./db');
 
 const getApi= async ()=>{
+  //hacemos la peiticion a nuestra url
   const response= await axios(URL)
+  //hacemos un map para extraerlos y agregarlos a un array
   const data = response.data.map(dog=>{
     let tempArr= []
     if(dog.temperament) tempArr= dog.temperament.split(', ')
@@ -23,10 +25,12 @@ const getApi= async ()=>{
 
   })
   
+  //devolvemos toda la data
   return data
 }
 
 const getDb = async () => {
+  //traemos todos los perros que se encuentren en la base de datos incluyendo los temperamentos que se relacionan con ellos
     const response = await Dog.findAll({
         include: {
             model: Temperament,
@@ -37,14 +41,17 @@ const getDb = async () => {
         }
     })
 
+    //devolvemos la data
     return response
 };
 
 const getAllDogs= async ()=>{
+  //recolectamos tanto la data de la api como la de la base de datos
   const apiData= await getApi();
   const dbData= await getDb();
+  //unimos ambas datas
   const allData= apiData.concat(dbData);
-
+  //devolvemos la data completa
   return allData
 }
 

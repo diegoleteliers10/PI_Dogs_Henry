@@ -2,6 +2,7 @@ const getAllDogs = require('../data')
 
 const getDogs= async(req,res)=>{
   try {
+    //traemos a todos los dogs y los devolvemos
     const allDogs= await getAllDogs()
     res.status(200).send(allDogs)
   } catch (error) {

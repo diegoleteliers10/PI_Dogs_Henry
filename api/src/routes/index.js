@@ -14,7 +14,7 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-//para encontrar un array con todos los perros
+//definimos las routes junto con sus controllers
 router.get('/dogs', getDogs)
 
 router.get('/dogs/:idRaza',getRaza)

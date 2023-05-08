@@ -1,4 +1,4 @@
-const getAllDogs = require("../data");
+const {getAllDogs} = require("../data");
 
 const getByName= async (req,res)=>{
   //pedimos el nameRaza por query, asi conseguimos por nombre cada dog

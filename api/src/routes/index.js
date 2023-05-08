@@ -3,6 +3,7 @@ const getDogs = require('../Controllers/getDogs');
 const getRaza = require('../Controllers/getRaza');
 const getByName = require('../Controllers/getByName');
 const postDog = require('../Controllers/postDog');
+const tempToDb = require('../Controllers/tempToDb');
 
 
 // Importar todos los routers;
@@ -23,7 +24,7 @@ router.get('/dog/name', getByName)
 
 router.post('/dogs',postDog)
 
-router.get('/temperaments',)
+router.get('/temperaments',tempToDb)
 
 
 module.exports = router;

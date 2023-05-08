@@ -14,13 +14,20 @@ const postDog= async(req,res)=>{
         life_span,
     })
 
-    //buscamos los temperamentos en nuestra base de datos
-    const dogTemp= await Temperament.findAll({
-      where : {name: temperaments}
-    })
-     
-    //agregamos los temperamentos al dog
+
+    const temp= temperaments.split(', ')
+    temp.forEach(async(e)=>{
+    const dogTemp= await Temperament.findAll({where:{name:e}})
     createdDog.addTemperament(dogTemp)
+    })
+
+    // //buscamos los temperamentos en nuestra base de datos
+    // const dogTemp= await Temperament.findAll({
+    //   where : {name: temperaments}
+    // })
+     
+    // //agregamos los temperamentos al dog
+    // createdDog.addTemperament(dogTemp)
 
     //enviamos un mensaje de confirmacion
     res.status(200).send({message:'Dog created'})

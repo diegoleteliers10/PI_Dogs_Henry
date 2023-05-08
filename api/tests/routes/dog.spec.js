@@ -22,3 +22,4 @@ describe('Videogame routes', () => {
     );
   });
 });
+

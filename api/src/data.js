@@ -6,11 +6,9 @@ const { Dog, Temperament } = require('./db');
 
 const getApi= async ()=>{
   //hacemos la peiticion a nuestra url
-  const response= await axios(URL)
+  const response= await axios(`${URL}?api_key=${API_KEY.API_KEY}`)
   //hacemos un map para extraerlos y agregarlos a un array
   const data = response.data.map(dog=>{
-    let tempArr= []
-    if(dog.temperament) tempArr= dog.temperament.split(', ')
 
     return {
       id: dog.id,
@@ -20,7 +18,7 @@ const getApi= async ()=>{
       height: dog.height.metric,
       weight: dog.weight.metric,
       life_span: dog.life_span,
-      temperament: tempArr
+      temperament: dog.temperament
     }
 
   })
@@ -55,4 +53,7 @@ const getAllDogs= async ()=>{
   return allData
 }
 
-module.exports= getAllDogs
+module.exports= {
+  getAllDogs,
+  getApi
+}

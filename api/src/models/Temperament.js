@@ -6,7 +6,6 @@ module.exports = (sequelize) => {
   sequelize.define('temperament', {
     id: {
       type:  DataTypes.INTEGER,
-      defaultValue: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
@@ -14,7 +13,7 @@ module.exports = (sequelize) => {
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
       }
     })
 };

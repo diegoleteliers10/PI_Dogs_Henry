@@ -1,4 +1,4 @@
-const getAllDogs = require("../data");
+const {getAllDogs} = require("../data");
 
 const getRaza= async(req,res)=>{
   //pedimos por parametros el id de la raza

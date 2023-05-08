@@ -1,4 +1,4 @@
-const getAllDogs = require('../data')
+const {getAllDogs}= require('../data')
 
 const getDogs= async(req,res)=>{
   try {

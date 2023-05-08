@@ -2,7 +2,7 @@ require('dotenv').config();
 const axios = require('axios');
 const API_KEY = process.env
 const URL= 'https://api.thedogapi.com/v1/breeds'
-const { Dog, Temperament } = require('./db');
+const { Dog, Temperament } = require('../db');
 
 const getApi= async ()=>{
   //hacemos la peiticion a nuestra url
@@ -48,7 +48,7 @@ const getAllDogs= async ()=>{
   const apiData= await getApi();
   const dbData= await getDb();
   //unimos ambas datas
-  const allData= apiData.concat(dbData);
+  const allData= dbData.concat(apiData);
   //devolvemos la data completa
   return allData
 }

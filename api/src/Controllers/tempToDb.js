@@ -1,4 +1,4 @@
-const { getApi } = require("../data")
+const { getApi } = require("../helper/data");
 const { Temperament } = require("../db")
 
 const tempToDb= async (req,res)=>{

@@ -2,6 +2,7 @@ const { Router } = require('express');
 const getDogs = require('../Controllers/getDogs');
 const getRaza = require('../Controllers/getRaza');
 const getByName = require('../Controllers/getByName');
+const postDog = require('../Controllers/postDog');
 
 
 // Importar todos los routers;
@@ -20,7 +21,7 @@ router.get('/dogs/:idRaza',getRaza)
 
 router.get('/dog/name', getByName)
 
-router.post('/dogs',)
+router.post('/dogs',postDog)
 
 router.get('/temperaments',)
 

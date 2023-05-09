@@ -1,0 +1,76 @@
+
+
+.itemsContainer{
+  display: grid;
+  margin-top: 1rem;
+  margin-right: 15px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+} 
+
+.imgDog{
+ border-radius: 10px;
+ width: 9rem;
+ height: 5rem;
+}
+
+.cardDog{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding:15px 15px 20px 15px;
+  margin: 10px;
+  width: 10rem;
+  height: 12rem;
+  background-color: #876445;
+  color: #F4DFBA;
+  border-radius: 10px;
+}
+
+.cardInfo{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  font-size: 12px;
+  text-align: center;
+}
+.cardInfo > * {
+  margin: 3px;
+}
+
+.linkName{
+  text-decoration: none;
+  font-size: 17px;
+  color: #F4DFBA;
+}
+
+.pagination{
+  list-style: none;
+  width: 92%;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination  a {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid #F4DFBA ;
+  color: #876445 ;
+  cursor: pointer;
+}
+
+.pagination a:hover{
+  color: #F4DFBA;
+  background-color: #876445;
+}
+
+.activePag a {
+  color: #F4DFBA;
+  background-color: #876445;
+}

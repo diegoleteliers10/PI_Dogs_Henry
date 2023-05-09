@@ -1,0 +1,20 @@
+.navBar {
+  box-sizing: border-box;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 1rem;
+  background-color:#EEC373;
+  box-shadow: 0px 2px 10px  #00000073 ;
+  margin: 0;
+}
+
+.logo{
+  width: 6rem;
+  height: 3rem;
+}
+
+.logoButton {
+  background: none;
+  border: none;
+}

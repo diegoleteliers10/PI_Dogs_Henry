@@ -1,4 +1,4 @@
-import {SHOW_ALL, FILTER, ORDER } from "./actions-types"
+import {SHOW_ALL, FILTER, ORDER } from "./action-types"
 import axios from "axios";
 
 export const showAllDogs= () => {

@@ -29,18 +29,22 @@ const getApi= async ()=>{
 
 const getDb = async () => {
   //traemos todos los perros que se encuentren en la base de datos incluyendo los temperamentos que se relacionan con ellos
-    const response = await Dog.findAll({
-        include: {
-            model: Temperament,
-            attributes: ['name'],
-            through: {
-                attributes: []
-            },
-        }
-    })
+  const response = await Dog.findAll({
+    include: {
+      model: Temperament,
+      attributes: ['name'],
+      through: {
+        attributes: []
+      },
+    }
+  });
 
-    //devolvemos la data
-    return response
+  const dogsWithTemperaments = response.map(dog => ({
+    ...dog.dataValues,
+    temperament: dog.temperaments.map(temp => temp.name).join(', ')
+  }));
+
+  return dogsWithTemperaments;
 };
 
 const getAllDogs= async ()=>{

@@ -1,0 +1,134 @@
+.imgDog {
+  border-radius: 10px;
+  width: 9rem;
+  height: 5rem;
+}
+
+.cardDog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 15px 20px 15px;
+  margin: 10px;
+  width: 10rem;
+  height: 12rem;
+  background-color: #876445;
+  color: #F4DFBA;
+  border-radius: 10px;
+  border: 1px solid #F4DFBA;
+  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(3px);
+  transition: all 0.5s;
+  user-select: none;
+}
+
+.cardDog:hover {
+  border: 1px solid black;
+  transform: scale(1.05);
+}
+
+.cardDog:active {
+  transform: scale(0.95) rotateZ(1.7deg);
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.cardInfo>* {
+  margin: 3px;
+}
+
+.linkName {
+  text-decoration: none;
+  font-size: 15px;
+  color: #EEC373;
+  transition: all 0.3s;
+}
+
+.cardDog:hover .linkName {
+  transform: scale(1.1);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.pagination {
+  margin-top: 1.5rem;
+  list-style: none;
+  width: 92%;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination a {
+  padding: 5px;
+  margin: 5px;
+  width: 2rem;
+  border-radius: 5px;
+  border: 1px solid #EEC373;
+  color: #876445;
+  cursor: pointer;
+}
+
+.pagination a:hover {
+  color: #EEC373;
+  background-color: #876445;
+}
+
+.activePag a {
+  color: #EEC373;
+  background-color: #876445;
+}
+
+.cardContainer {
+  margin-left: 15px;
+  display: grid;
+  margin-top: 1.5rem;
+  margin-right: 15px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  justify-items: center;
+}
+
+.iconHeart path{
+  stroke: #EEC373;
+}
+
+.iconHeart{
+    position: absolute;
+    bottom: 5px;
+    right: 15px;
+    width: 30px;
+    height: 26px;
+    cursor: pointer;
+}
+
+.iconHeart:hover {
+  transform: scale(1.1);
+}
+
+.iconHeartFill{
+    position: absolute;
+    bottom: 5px;
+    right: 15px;
+    width: 30px;
+    height: 26px;
+    cursor: pointer;
+}
+
+.iconHeartFill:hover {
+  transform: scale(1.1);
+}
+
+.iconHeartFill path {
+  stroke: #EEC373;
+  fill: #EEC373;
+}

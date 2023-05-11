@@ -6,6 +6,13 @@ import { useNavigate } from 'react-router-dom';
 import Home from './components/Home/Home';
 import { useLocation } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
+import DetailDog from './components/DetailDog/DetailDog';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { showAllDogs } from './redux/actions';
+
+
 
 
 function App() {
@@ -21,13 +28,22 @@ function App() {
   let location = useLocation()
   let isLocation= location.pathname==='/'
 
+  const allDogs = useSelector(state => state.allDogs);
+  const dispatch = useDispatch(); 
+
+  useEffect(()=>{
+    dispatch(showAllDogs()) //despachamos nuestra funcion showAllDogs de donde obtenemos todos los dogs
+  },[dispatch])
+
   return (
     <div className="App">
       {isLocation? 
-        <Landing props={goHome}/> : <Nav />
+        <Landing props={goHome}/> : <Nav dogs={allDogs} />
       }
       <Routes>
-        <Route path='/home' element={<Home />}/>
+        <Route path='/home' element={<Home dogs={allDogs}/>}/>
+        <Route path='/detail/:id' element={<DetailDog/>}/>
+        
       </Routes>
     </div>
   );

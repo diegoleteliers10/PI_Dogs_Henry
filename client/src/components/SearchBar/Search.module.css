@@ -1,0 +1,88 @@
+.form button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* styling of whole input container */
+.form {
+  position: relative;
+  top: 10px;
+  right: 15px;
+  width: 200px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding-inline: 0.8em;
+  border-radius: 30px;
+  transition: border-radius 0.5s ease;
+  background:#CA965C;
+}
+
+/* styling of Input */
+.input {
+  font-size: 0.9rem;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  padding-inline: 0.5em;
+  padding-block: 0.7em;
+  border: none;
+  color: #876445;
+}
+
+.input::placeholder {
+  color: #876445;
+}
+
+/* styling of animated border */
+.form:before {
+  content: "";
+  position: absolute;
+  background: #876445;
+  transform: scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  border-radius: 1px;
+  transition: transform 0.3s ease;
+}
+
+
+.form:focus-within {
+  border-radius: 1px;
+}
+
+input:focus {
+  outline: none;
+}
+
+
+.form:focus-within:before {
+  transform: scale(1);
+}
+
+.reset {
+  border: none;
+  background: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+input:not(:placeholder-shown)~.reset {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+.form svg {
+  width: 17px;
+  margin-top: 3px;
+}
+
+.svgI path{
+  fill: black;
+}

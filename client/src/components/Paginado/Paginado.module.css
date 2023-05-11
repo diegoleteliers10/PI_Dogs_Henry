@@ -1,0 +1,80 @@
+.paginadoContainer{
+  width: 43rem;
+  height: 2rem;
+  position: absolute;
+  top: 66px;
+  left: 221px;
+}
+
+.ulCont{
+  display: flex;
+  justify-content: space-around;
+  gap: 5px;
+
+}
+
+.pagEachButt{
+  border: 1.5px solid #EEC373;
+  margin: 0;
+  background-color: #CA965C;
+  list-style: none;
+  border-radius: 5px;
+  height: 30px;
+  width: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #876445;
+  cursor: pointer;
+}
+
+.pagEachButt:hover{
+  border: 1.5px solid #876445;
+  margin: 0;
+  background-color: #876445;
+  list-style: none;
+  border-radius: 5px;
+  height: 30px;
+  width: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #CA965C;
+  cursor: pointer;
+}
+
+.pagEachButt:focus {
+  border: 1.5px solid #876445;
+  background-color: #876445;
+  color: #CA965C;
+}
+
+.prevBut, .nextBut{
+  border: 1.5px solid #EEC373;
+  margin: 0;
+  background-color: #CA965C;
+  list-style: none;
+  border-radius: 5px;
+  height: 30px;
+  width: 23rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;cursor: pointer;
+  color: #876445;
+}
+
+.prevBut:hover,
+.nextBut:hover {
+  border: 1.5px solid #876445;
+  margin: 0;
+  background-color: #876445;
+  list-style: none;
+  border-radius: 5px;
+  height: 30px;
+  width: 23rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #CA965C;
+}

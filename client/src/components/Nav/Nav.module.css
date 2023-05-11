@@ -12,9 +12,38 @@
 .logo{
   width: 6rem;
   height: 3rem;
+  position: relative;
+  left: 4rem;
 }
 
 .logoButton {
   background: none;
   border: none;
+}
+
+.buttonsCont{
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.button{
+  background: none;
+  border: none;
+  position: relative;
+  left: 13rem;
+}
+
+.button a{
+  text-decoration: none;
+  color: #876445;
+  font-size: 1.2rem;
+}
+
+.button a:hover{
+  border-bottom: 3px solid #F4DFBA;
+}
+
+.button a:focus {
+  border-bottom: 3px solid #F4DFBA;
 }

@@ -1,0 +1,65 @@
+.containerDetail {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  position: relative;
+  top: 5rem;
+  left: 15rem;
+  width: 50rem;
+  height: 25rem;
+  background: #F4DFBA;
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.imgDetail{
+  width: 20rem;
+  height: 22rem;
+  position: relative;
+  left: 2rem;
+  top: 1rem;
+  border-bottom-left-radius: 25px;
+  border-top-left-radius: 25px
+}
+
+.id{
+  position: absolute;
+  top: -1rem;
+  left: 20rem;
+}
+
+.containerDeInfo{
+  position: relative;
+  top: 1rem;
+  display: grid;
+  grid-template-rows: repeat(6, 0fr);
+  justify-items: flex-start;
+  align-items: baseline;
+  -webkit-text-stroke: 1px #876445;
+  color: #CA965C;
+  font-size: 17px;
+}
+
+.loader {
+  position: relative;
+  top:15rem ;
+  left: 37rem;
+  width: 45px;
+  height: 40px;
+  background: linear-gradient(#0000 calc(1*100%/6), #fff 0 calc(3*100%/6), #0000 0),
+    linear-gradient(#0000 calc(2*100%/6), #fff 0 calc(4*100%/6), #0000 0),
+    linear-gradient(#0000 calc(3*100%/6), #fff 0 calc(5*100%/6), #0000 0);
+  background-size: 10px 400%;
+  background-repeat: no-repeat;
+  animation: matrix 1s infinite linear;
+}
+
+@keyframes matrix {
+  0% {
+    background-position: 0% 100%, 50% 100%, 100% 100%
+  }
+
+  100% {
+    background-position: 0% 0%, 50% 0%, 100% 0%
+  }
+}

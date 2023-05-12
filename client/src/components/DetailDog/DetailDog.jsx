@@ -16,7 +16,7 @@ const DetailDog = ()=>{
     }, [dispatch, id]);
 
   return (
-    <>
+    <div className={style.containerDet}>
     {dogDetail.length === 0 ? <div className={style.loader}></div>
     : <div className={style.containerDetail}>
           <img src={dogDetail[0].image} alt={dogDetail[0].name} className={style.imgDetail}/>
@@ -31,7 +31,7 @@ const DetailDog = ()=>{
       </div>
 
     }
-    </>
+    </div>
   )
 }
 

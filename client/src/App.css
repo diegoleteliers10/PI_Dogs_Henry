@@ -1,6 +1,8 @@
-.App {
-  background-color: #CA965C;
-  max-height: 100vh;
+body {
+  background-image: url(../public/perro-3-e1561679226953.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 ::-webkit-scrollbar {

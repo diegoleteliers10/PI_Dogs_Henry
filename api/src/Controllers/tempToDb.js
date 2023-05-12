@@ -5,8 +5,11 @@ const tempToDb= async (req,res)=>{
   try {
     //conseguimos todos los datos de la api con sus temperamentos
     const allTempData= await getApi()
+
+    //filtramos los que no tienen temperamentos
+    const filterTemp=allTempData.filter(temp=> temp.temperament!=="")
     //hacemos un array con todos los temperamentos de nuestros dogs
-    const temps= allTempData.map(temp=> temp.temperament)
+    const temps= filterTemp.map(temp=> temp.temperament)
     //lo llevamos a string, lo separamos por comas y los guardamos en un array
     const temperaments= temps.toString().split(', ' && ',')
     //a cada uno de los temperamentos le quitamos los espacios que tengan al principio o al final y lo guardamos en la base de datos

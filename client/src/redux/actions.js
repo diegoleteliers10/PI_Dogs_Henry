@@ -1,4 +1,4 @@
-import {SHOW_ALL, FILTER, ORDER, DETAIL_DOG, DOG_BREED, FAV_DOG } from "./action-types"
+import {SHOW_ALL, ORDER, DETAIL_DOG, DOG_BREED, SHOW_TEMPS, FILTER_TEMPS } from "./action-types"
 import axios from "axios";
 
 export const showAllDogs= () => {
@@ -11,8 +11,8 @@ export const showAllDogs= () => {
     }
 };
 
-export const filterDogs= (opcion) =>{
-  return {type: FILTER, payload:opcion}
+export const filterTemps= (opcion) =>{
+  return {type: FILTER_TEMPS, payload:opcion}
 }
 
 export const orderDogs=(opcion)=>{
@@ -43,19 +43,13 @@ export function getDogBreed(name) {
     }
 }
 
-export const addFav = (dogy) => {
-   const endpoint = 'http://localhost:3001/dog/fav';
-   return async(dispatch) => {
-      try{
-         const {data}= await axios.post(endpoint, dogy);
-         return dispatch({
-            type: FAV_DOG,
-            payload: data
-         });
-      }
-      catch(error){
-         console.log(error)
-      }
-   }
 
-};
+export const getAllTemperaments=()=>{
+    return async function (dispatch) {
+        let dogs = await axios.get('http://localhost:3001/temperaments');
+        return dispatch({//necesario para despachar la accion
+            type: SHOW_TEMPS,
+            payload: dogs.data
+        });
+    }
+}

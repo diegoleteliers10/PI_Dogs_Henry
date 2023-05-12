@@ -23,7 +23,7 @@
 }
 
 .cardDog:hover {
-  border: 1px solid black;
+  border: 1px solid #463424;
   transform: scale(1.05);
 }
 

@@ -11,6 +11,9 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { showAllDogs } from './redux/actions';
+import {getAllTemperaments} from  './redux/actions'
+
+
 
 
 
@@ -29,10 +32,12 @@ function App() {
   let isLocation= location.pathname==='/'
 
   const allDogs = useSelector(state => state.allDogs);
+  const allTemperaments = useSelector(state => state.allTemperaments);
   const dispatch = useDispatch(); 
 
   useEffect(()=>{
     dispatch(showAllDogs()) //despachamos nuestra funcion showAllDogs de donde obtenemos todos los dogs
+    dispatch(getAllTemperaments())
   },[dispatch])
 
   return (
@@ -41,7 +46,7 @@ function App() {
         <Landing props={goHome}/> : <Nav dogs={allDogs} />
       }
       <Routes>
-        <Route path='/home' element={<Home dogs={allDogs}/>}/>
+        <Route path='/home' element={<Home temperamentos={allTemperaments}/>}/>
         <Route path='/detail/:id' element={<DetailDog/>}/>
         
       </Routes>

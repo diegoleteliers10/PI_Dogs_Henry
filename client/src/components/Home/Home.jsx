@@ -4,7 +4,7 @@ import Card from '../Card/Card';
 import Paginado from '../Paginado/Paginado';
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
-import {filterTemps} from '../../redux/actions'
+import {filterTemps, orderByWeight, orderDogsAbece} from '../../redux/actions'
 import { useSelector } from 'react-redux';
 
 const Home = (props) => {
@@ -13,7 +13,10 @@ const Home = (props) => {
   //manipulamos los elementos de nuestro array de items para mostrarlos en pantalla y usarlos con el paginado
   const {temperamentos}=props
   const dogs = useSelector(state => state.allDogs);
-  console.log(dogs)
+  const doggys= useSelector(state => state.dogs);
+  console.log({dogs:dogs})
+  console.log({doggys:doggys})
+  
   //seteamos la pagina actual en 1
   const [pagAct, setPagAct] = useState(1);
   //cantidad de elementos por pagina
@@ -49,9 +52,18 @@ const Home = (props) => {
    })
 
   const handleFilter = (event)=>{
-    console.log(event.target.value)
     event.preventDefault();
     dispatch(filterTemps(event.target.value))
+  }
+
+  const handleOrdendAbecedario = (event)=>{
+    event.preventDefault();
+    dispatch(orderDogsAbece(event.target.value))
+  }
+
+  const handleWeightOrder = (event)=>{
+    event.preventDefault();
+    dispatch(orderByWeight(event.target.value))
   }
 
         return (
@@ -63,26 +75,24 @@ const Home = (props) => {
               {newDog}
             </div>
             <div className={style.selects}>
-            <select className={style.select}>
-              <option value="" disabled>Name</option>
-              <option value="All" defaultValue>All</option>
-              <option value="A">A-Z</option>
-              <option value="D">Z-A</option>
+            <select className={style.select} onChange={handleOrdendAbecedario}>
+              <option value="" disabled selected>Name</option>
+              <option value="A-Z" >A-Z</option>
+              <option value="Z-A">Z-A</option>
             </select>
-            <select className={style.selectPeso}>
-              <option value="Ordenar" disabled='disabled'>Peso</option>
-              <option value="All" defaultValue>All</option>
+            <select className={style.selectPeso} onChange={handleWeightOrder}>
+              <option value="Ordenar" disabled selected>Peso</option>
               <option value="A">Ascendente</option>
               <option value="D">Descendiente</option>
             </select>
             <select className={style.select1} onChange={handleFilter}>
-              <option value="" disabled defaultValue>Temperamentos</option>  
-              <option value="All" defaultValue>All</option>
+              <option value="" disabled selected>Temperamentos</option>  
+              <option value="All">All</option>
               {temps}
             </select>
             <select className={style.select1}>
-              <option value="" disabled>Dato</option>
-              <option value="All" defaultValue>All</option>
+              <option value="" disabled selected>Dato</option>
+              <option value="All" >All</option>
               <option value="API">API</option>
               <option value="DB">DB</option>
             </select>

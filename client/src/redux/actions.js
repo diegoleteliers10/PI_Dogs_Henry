@@ -1,4 +1,4 @@
-import {SHOW_ALL, ORDER, DETAIL_DOG, DOG_BREED, SHOW_TEMPS, FILTER_TEMPS } from "./action-types"
+import {SHOW_ALL, DETAIL_DOG, DOG_BREED, SHOW_TEMPS, FILTER_TEMPS, ORDERED_ABECE, ORDERED_WEIGHT } from "./action-types"
 import axios from "axios";
 
 export const showAllDogs= () => {
@@ -15,8 +15,8 @@ export const filterTemps= (opcion) =>{
   return {type: FILTER_TEMPS, payload:opcion}
 }
 
-export const orderDogs=(opcion)=>{
-  return {type:ORDER, payload:opcion}
+export const orderDogsAbece=(payload)=>{
+  return {type:ORDERED_ABECE, payload}
 }
 
 export function DogDetails(id) {
@@ -52,4 +52,8 @@ export const getAllTemperaments=()=>{
             payload: dogs.data
         });
     }
+}
+
+export const orderByWeight= (payload)=>{
+    return {type:ORDERED_WEIGHT, payload}
 }

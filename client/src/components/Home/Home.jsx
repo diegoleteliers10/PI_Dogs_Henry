@@ -4,7 +4,7 @@ import Card from '../Card/Card';
 import Paginado from '../Paginado/Paginado';
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
-import {filterTemps, orderByWeight, orderDogsAbece} from '../../redux/actions'
+import {filterTemps, orderByWeight, orderDogsAbece, filteredByData} from '../../redux/actions'
 import { useSelector } from 'react-redux';
 
 const Home = (props) => {
@@ -13,9 +13,6 @@ const Home = (props) => {
   //manipulamos los elementos de nuestro array de items para mostrarlos en pantalla y usarlos con el paginado
   const {temperamentos}=props
   const dogs = useSelector(state => state.allDogs);
-  const doggys= useSelector(state => state.dogs);
-  console.log({dogs:dogs})
-  console.log({doggys:doggys})
   
   //seteamos la pagina actual en 1
   const [pagAct, setPagAct] = useState(1);
@@ -45,25 +42,31 @@ const Home = (props) => {
       )
    });
 
+   //creamos la funcion para crear los cards en base al array acortado a mostrar
    const temps= temperamentos.map(temp=>{
     return (
       <option value={temp.name} key={temp.id}>{temp.name}</option>
     )
    })
-
+   //creamos la funcion para despachar los actions
   const handleFilter = (event)=>{
     event.preventDefault();
     dispatch(filterTemps(event.target.value))
   }
-
+  //creamos la funcion para despachar los actions
   const handleOrdendAbecedario = (event)=>{
     event.preventDefault();
     dispatch(orderDogsAbece(event.target.value))
   }
-
+//creamos la funcion para despachar los actions
   const handleWeightOrder = (event)=>{
     event.preventDefault();
     dispatch(orderByWeight(event.target.value))
+  }
+  //creamos la funcion para despachar los actions
+  const handleByData = (event)=>{
+    event.preventDefault();
+    dispatch(filteredByData(event.target.value))
   }
 
         return (
@@ -75,27 +78,32 @@ const Home = (props) => {
               {newDog}
             </div>
             <div className={style.selects}>
+
             <select className={style.select} onChange={handleOrdendAbecedario}>
               <option value="" disabled selected>Name</option>
               <option value="A-Z" >A-Z</option>
               <option value="Z-A">Z-A</option>
             </select>
+
             <select className={style.selectPeso} onChange={handleWeightOrder}>
               <option value="Ordenar" disabled selected>Peso</option>
               <option value="A">Ascendente</option>
               <option value="D">Descendiente</option>
             </select>
+
             <select className={style.select1} onChange={handleFilter}>
               <option value="" disabled selected>Temperamentos</option>  
               <option value="All">All</option>
               {temps}
             </select>
-            <select className={style.select1}>
+
+            <select className={style.select1} onChange={handleByData}>
               <option value="" disabled selected>Dato</option>
               <option value="All" >All</option>
               <option value="API">API</option>
               <option value="DB">DB</option>
             </select>
+
             </div>
             <Paginado paginate={paginate} dogsInPag={dogsInPag} allDogs={dogs.length} pagAct={pagAct}/>
         </div>

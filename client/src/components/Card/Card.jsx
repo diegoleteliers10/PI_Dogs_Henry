@@ -4,10 +4,10 @@ import styles  from './Card.module.css'
 
 const Card = (props) => {
 
-
+  //traemos los datos necesarios a usar desde props
     const { id, image, name, temperament, weight } = props
 
-
+  //retornamos los datos de cada card
   return(
     <>
       <div className={styles.cardDog} >

@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { showAllDogs } from './redux/actions';
 import {getAllTemperaments} from  './redux/actions'
+import Form from './components/Form/Form';
 
 
 
@@ -32,6 +33,7 @@ function App() {
   let isLocation= location.pathname==='/'
 
   const allDogs = useSelector(state => state.allDogs);
+  console.log(allDogs)
   const allTemperaments = useSelector(state => state.allTemperaments);
   const dispatch = useDispatch(); 
 
@@ -48,6 +50,7 @@ function App() {
       <Routes>
         <Route path='/home' element={<Home temperamentos={allTemperaments}/>}/>
         <Route path='/detail/:id' element={<DetailDog/>}/>
+        <Route path='/formDog' element={<Form />}/>
         
       </Routes>
     </div>

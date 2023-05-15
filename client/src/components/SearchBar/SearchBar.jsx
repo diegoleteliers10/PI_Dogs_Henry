@@ -4,20 +4,25 @@ import { useDispatch } from 'react-redux'
 import { getDogBreed, showAllDogs } from '../../redux/actions'
 
 const SearchBar = () => {
+
+  //usamos el useState para crear nuestro estado de breed y creamos el dispatch
   const [breed,setBreed]=React.useState('')
   const dispatch=useDispatch()
 
+  //creamos una funcion para manejar el evento de busqueda y setear nuestro dog al breed
      const handleSearch= (event)=>{
       event.preventDefault()
       let dog=event.target.value
       setBreed(dog)
     }
 
+    //creamos una funcion para manejar el evento de envio y mandar a llamar la accion de busqueda
     const handleSubmit = (event) => {
       event.preventDefault()
       dispatch(getDogBreed(breed));
     }
 
+    //creamos una funcion para manejar el evento de cancelar y mandar a llamar la accion de mostrar todos los dogs
     const handleCancel=()=>{
             dispatch(showAllDogs());
     }

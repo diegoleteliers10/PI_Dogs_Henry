@@ -1,4 +1,4 @@
-import {SHOW_ALL, DETAIL_DOG, DOG_BREED, SHOW_TEMPS, FILTER_TEMPS, ORDERED_ABECE, ORDERED_WEIGHT } from "./action-types"
+import {SHOW_ALL, DETAIL_DOG, DOG_BREED, SHOW_TEMPS, FILTER_TEMPS, ORDERED_ABECE, ORDERED_WEIGHT, FILTER_BY_DATA } from "./action-types"
 import axios from "axios";
 
 export const showAllDogs= () => {
@@ -56,4 +56,14 @@ export const getAllTemperaments=()=>{
 
 export const orderByWeight= (payload)=>{
     return {type:ORDERED_WEIGHT, payload}
+}
+
+export const filteredByData= (payload)=>{
+    return {type:FILTER_BY_DATA, payload}
+}
+
+export const createDog= (payload)=>{
+    const {name, image, min_height,max_height, min_weight, max_weight, life_span, temperaments}=payload
+    const createdDog= {name:name, image:image, height:`${min_height} - ${max_height}`, weight:`${min_weight} - ${max_weight}`, life_span:life_span, temperaments:temperaments.join(', ')}
+    axios.post('http://localhost:3001/dogs', createdDog)
 }

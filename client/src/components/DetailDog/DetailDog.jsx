@@ -6,11 +6,12 @@ import { DogDetails } from "../../redux/actions";
 import { useSelector } from "react-redux";
 
 const DetailDog = ()=>{
+  //usamos el estado de redux de detail
     const dogDetail = useSelector(state => state.detail);
-
+  //traemos el dispatch y el id de parametros de la ruta
     const dispatch = useDispatch();
     let { id } = useParams();
-
+  // usamos el useEffect para despachar nuestro id en la accion de redux
     useEffect(() => {
         dispatch(DogDetails(id));
     }, [dispatch, id]);
@@ -21,7 +22,9 @@ const DetailDog = ()=>{
     : <div className={style.containerDetail}>
           <img src={dogDetail[0].image} alt={dogDetail[0].name} className={style.imgDetail}/>
          <div className={style.containerDeInfo}>
-          <h2 className={style.id}>{dogDetail[0].id}</h2>
+          <h2 className={style.id}>{
+            id.length===1 ? id : id.slice(0,2)
+          }</h2>
           <h2>{dogDetail[0].name}</h2>
           <p>Height: {dogDetail[0].height} cm</p>
           <p>Weight: {dogDetail[0].weight} kg</p>

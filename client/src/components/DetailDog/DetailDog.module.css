@@ -52,7 +52,7 @@
 .loader {
   position: relative;
   top:15rem ;
-  left: 37rem;
+  left: 39rem;
   width: 45px;
   height: 40px;
   background: linear-gradient(#0000 calc(1*100%/6), #fff 0 calc(3*100%/6), #0000 0),

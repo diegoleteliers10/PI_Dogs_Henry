@@ -1,5 +1,5 @@
 
-import { DETAIL_DOG, DOG_BREED, FILTER_TEMPS, SHOW_ALL, SHOW_TEMPS, ORDERED_ABECE, ORDERED_WEIGHT} from "./action-types"
+import { DETAIL_DOG, DOG_BREED, FILTER_TEMPS, SHOW_ALL, SHOW_TEMPS, ORDERED_ABECE, ORDERED_WEIGHT, FILTER_BY_DATA} from "./action-types"
 
 const initialState= {
   allDogs: [],
@@ -20,7 +20,6 @@ const reducer= (state=initialState,action)=>{
       };
 
     case DETAIL_DOG:
-      console.log(action.payload)
       return {
         ...state,
         detail: action.payload,
@@ -108,6 +107,34 @@ const reducer= (state=initialState,action)=>{
           return {
             ...state,
             allDogs:orderedWeightDogs,
+          }
+
+
+        case FILTER_BY_DATA:
+          let filterByData=[]
+          if(action.payload ==='All'){
+            state.dogs.forEach(dog => {
+              filterByData.push(dog)
+            })
+          };
+          if(action.payload ==='API'){
+            state.dogs.forEach(dog => {
+              if(typeof dog.id === 'number'){
+                filterByData.push(dog)
+              }
+            })
+          };
+          if(action.payload ==='DB'){
+            state.dogs.forEach(dog => {
+              if(typeof dog.id === 'string'){
+                filterByData.push(dog)
+              }
+            })
+          }
+
+          return {
+            ...state,
+            allDogs:filterByData,
           }
 
     default:

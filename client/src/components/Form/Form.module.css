@@ -1,0 +1,188 @@
+.formContainer{
+  position: absolute;
+  background-color: #CA965C;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100vw;
+  height: -webkit-fill-available;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formDog {
+    height: 340px;
+    text-align: center;
+    position: relative;
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    top: 40px;
+}
+
+.formContent{
+  background: #CA965C;
+  width: 540px;
+  height: 529px;
+  border-radius: 45px;
+  box-shadow: inset -13px 13px 28px #8d6940, inset 13px -13px 28px #ffc378;
+}
+
+
+
+label, .titleForm{
+  color: #F4DFBA;
+}
+
+.inputForm{
+  border-radius: 20px;
+  height: 25px;
+  width: 12rem;
+  position: relative;
+  left: 10rem;
+  border: 1px solid #F4DFBA;
+  background-color: #8d6940;
+  box-shadow: inset -35px 35px 70px #785936,
+    inset 35px -35px 70px #a2794a;
+  padding-left: 15px;
+  
+}
+
+.inputForm::placeholder{
+  color:black;
+  opacity: 0.2;
+}
+
+.inputForm:focus::placeholder {
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+label {
+  margin-right: 10px;
+  position: relative;
+  right: 10rem;
+  top: 1.5rem;
+}
+
+.selectForm{
+  border-radius: 20px;
+  width: 10rem;
+  position: relative;
+  left: 14.5rem;
+  border: none;
+  background-color: #8d6940;
+  padding-left: 10px;
+}
+
+.nameDogForm{
+  position: relative;
+  right: 9rem;
+}
+
+.lifeDogForm{
+  position: relative;
+  right: 9.5rem;
+}
+
+.temperamentsForm{
+  position: relative;
+  right: 8rem;
+}
+
+.buttonDogForm{
+  width: 8rem;
+  height: 3rem;
+  border-radius: 15px;
+  position: relative;
+  left: 12.5rem;
+  top: 24px;
+  background-color:#8d6940;
+  border: none;
+}
+
+.buttonDogForm:hover{
+  box-shadow: 2px 2px 6px black;
+  background-color: #F4DFBA;
+  color: #8d6940;
+}
+
+.pErrorMinHeight{
+  color: rgb(119, 10, 10);
+  font-size: 12px;
+  position: absolute;
+  bottom: 67%;
+  left: 24rem;
+}
+
+.pErrorMaxHeight{
+  color: rgb(119, 10, 10);
+  font-size: 12px;
+  position: absolute;
+  bottom: 52%;
+  left: 24rem;
+}
+
+.pErrorMinWeight {
+  color: rgb(119, 10, 10);
+  font-size: 12px;
+  position: absolute;
+  bottom: 37%;
+  left: 24rem;
+}
+
+.pErrorMaxWeight {
+  color: rgb(119, 10, 10);
+  font-size: 12px;
+  position: absolute;
+  bottom: 22%;
+  left: 24rem;
+}
+
+.pErrorLife{
+  color: rgb(119, 10, 10);
+  font-size: 11px;
+  position: absolute;
+  bottom: 7%;
+  left: 24rem;
+}
+
+.pErrorName{
+  color: rgb(119, 10, 10);
+  font-size: 12px;
+  position: absolute;
+  bottom: 82%;
+  left: 24rem;
+}
+
+.inputImgForm{
+  border-radius: 20px;
+  height: 25px;
+  width: 14rem;
+  position: relative;
+  left: 13rem;
+  border: 1px solid #F4DFBA;
+  background-color: #8d6940;
+  box-shadow: inset -35px 35px 70px #785936, inset 35px -35px 70px #a2794a;
+  padding-left: 15px;
+}
+
+.inputImgForm:focus::placeholder {
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.inputImgForm::placeholder {
+  color: black;
+  opacity: 0.2;
+}
+
+.imgUrl{
+  position: relative;
+  right: 9rem;
+}
+
+.titleForm{
+  position:absolute;
+  top: -49px;
+  left: 181px;
+}

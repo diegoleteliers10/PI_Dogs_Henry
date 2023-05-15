@@ -23,27 +23,71 @@
 
 .buttonsCont{
   display: flex;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: end;
   gap: 1rem;
+  width:27rem;
+  position:relative;
+  left: 10rem;
 }
 
-.button{
-  background: none;
-  border: none;
-  position: relative;
-  left: 13rem;
+
+.button {
+  border-radius: 20px;
+    position: relative;
+    width: 154px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: #CA965C;
 }
 
-.button a{
-  text-decoration: none;
-  color: #876445;
-  font-size: 1.2rem;
+.button,
+.button__icon,
+.button__text {
+  transition: all 0.3s;
 }
 
-.button a:hover{
-  border-bottom: 3px solid #F4DFBA;
+.button .button__text {
+  transform: translateX(35px);
+  color: #fff;
+  font-weight: 600;
 }
 
-.button a:focus {
-  border-bottom: 3px solid #F4DFBA;
+.button .button__icon {
+  border-radius: 20px;
+  position: absolute;
+  top: 0px;
+  left: 1.3px;
+  transform: translateX(112px);
+  height: 100%;
+  width: 40px;
+  background-color: #876445;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button .svg {
+  width: 35px;
+  stroke: #fff;
+}
+
+.button:hover {
+  background: #876445;
+}
+
+.button:hover .button__text {
+  color: transparent;
+}
+
+.button:hover .button__icon {
+  width: 160px;
+  transform: translateX(-5.7px);
+}
+
+.button:active .button__icon {
+  background-color: #bf8c5f;
 }

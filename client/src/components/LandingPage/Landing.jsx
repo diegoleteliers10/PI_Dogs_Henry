@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import style from './Landing.module.css'
 
 const Landing = (props) => {
-  console.log(props)
   return (
     <div className={style.landingContainer}>
       <img src="logo-no-background_black.png" alt="logo" className={style.logoLanging}/>

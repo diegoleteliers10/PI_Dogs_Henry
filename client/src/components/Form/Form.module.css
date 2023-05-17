@@ -94,16 +94,25 @@ label {
   height: 3rem;
   border-radius: 15px;
   position: relative;
-  left: 12.5rem;
-  top: 24px;
+  left: 5.5rem;
+  top: 10px;
   background-color:#8d6940;
   border: none;
 }
 
-.buttonDogForm:hover{
+.buttonDogForm:hover:not(:disabled){
   box-shadow: 2px 2px 6px black;
   background-color: #F4DFBA;
   color: #8d6940;
+}
+
+.buttonDogForm:active{
+  transform: translateY(2px);
+}
+
+.buttonDogForm:disabled:hover{
+  cursor: not-allowed;
+  user-select: none;
 }
 
 .pErrorMinHeight{
@@ -157,32 +166,30 @@ label {
 .inputImgForm{
   border-radius: 20px;
   height: 25px;
-  width: 14rem;
+  width: 19rem;
   position: relative;
-  left: 13rem;
+  left: 11rem;
   border: 1px solid #F4DFBA;
   background-color: #8d6940;
-  box-shadow: inset -35px 35px 70px #785936, inset 35px -35px 70px #a2794a;
-  padding-left: 15px;
+  box-shadow: inset -35px 35px 70px #785936,
+    inset 35px -35px 70px #a2794a;
+  padding: 5px 5px 5px 10px;
 }
 
-.inputImgForm:focus::placeholder {
-  opacity: 0;
-  transition: all 0.3s;
-}
-
-.inputImgForm::placeholder {
-  color: black;
-  opacity: 0.2;
-}
-
-.imgUrl{
-  position: relative;
-  right: 9rem;
-}
+/* input[type="file"]{
+  border-radius: 10px;
+} */
 
 .titleForm{
   position:absolute;
   top: -49px;
   left: 181px;
+}
+
+.imgUpload{
+  width: 7rem;
+  height: 4rem;
+  position: absolute;
+  bottom: -143px;
+  right: 68px;
 }

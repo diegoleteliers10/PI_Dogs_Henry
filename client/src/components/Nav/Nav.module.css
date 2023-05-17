@@ -19,16 +19,31 @@
 .logoButton {
   background: none;
   border: none;
+  cursor: pointer;
 }
 
 .buttonsCont{
   display: flex;
   align-items: center;
   justify-content: end;
-  gap: 1rem;
+  gap: 7rem;
   width:27rem;
   position:relative;
   left: 10rem;
+}
+
+.homeLink{
+  text-decoration: none;
+  color: #876445;
+  font-size: larger;
+}
+
+.homeLink:hover{
+  border-bottom:2.5px solid #F4DFBA;
+}
+
+.homeLink:focus{
+  border-bottom: 2.5px solid #F4DFBA;
 }
 
 

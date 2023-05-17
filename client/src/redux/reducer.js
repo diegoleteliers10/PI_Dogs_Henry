@@ -5,7 +5,7 @@ const initialState= {
   allDogs: [],
   dogs:[],
   detail: [],
-  allTemperaments:[]
+  allTemperaments:[],
 }
 
 
@@ -57,12 +57,15 @@ const reducer= (state=initialState,action)=>{
       };
 
       case ORDERED_ABECE:
-        const allDoggs= state.dogs
+        let myDog=state.dogs
         let OrdDogsAbe = [];
         let orderedDogs= []
+        if(action.payload === "All") {
+          OrdDogsAbe = myDog
+        }else{
         OrdDogsAbe =
         action.payload === "A-Z"
-          ? allDoggs.sort((a, b) => {
+          ? state.allDogs.sort((a, b) => {
               if (a.name > b.name) {
                 return 1;
               }
@@ -71,7 +74,7 @@ const reducer= (state=initialState,action)=>{
               }
               return 0;
             })
-          : allDoggs.sort((a, b) => {
+          : state.allDogs.sort((a, b) => {
               if (a.name > b.name) {
                 return -1;
               }
@@ -80,6 +83,7 @@ const reducer= (state=initialState,action)=>{
               }
               return 0;
             })
+        }
           OrdDogsAbe.forEach(dog => { orderedDogs.push(dog)});
 
       return {
@@ -88,8 +92,12 @@ const reducer= (state=initialState,action)=>{
         };
 
       case ORDERED_WEIGHT:
+        let myDogs=state.dogs
         let typeOrd = [];
         let orderedWeightDogs= []
+        if(action.payload === "All") {
+          typeOrd = myDogs
+        }else{
         typeOrd =
         action.payload === "A"
           ? state.allDogs.sort((a, b) => {
@@ -102,6 +110,7 @@ const reducer= (state=initialState,action)=>{
               const secondWeight= b.weight.split(" - ")[1] || b.weight.split(" - ")[0];
               return secondWeight - firtsWeight;
             })
+        }
           typeOrd.forEach(dog => { orderedWeightDogs.push(dog)})
 
           return {
@@ -111,31 +120,28 @@ const reducer= (state=initialState,action)=>{
 
 
         case FILTER_BY_DATA:
-          let filterByData=[]
-          if(action.payload ==='All'){
-            state.dogs.forEach(dog => {
-              filterByData.push(dog)
-            })
-          };
-          if(action.payload ==='API'){
-            state.dogs.forEach(dog => {
-              if(typeof dog.id === 'number'){
-                filterByData.push(dog)
+          const todosPerros= state.dogs
+          let filterDogsData = [];
+          if(action.payload === 'All') {
+            filterDogsData = todosPerros
+          } else if(action.payload==='API') {
+            todosPerros.forEach(dog => {
+              if (typeof(dog.id)==='number') {
+                filterDogsData.push(dog);
               }
             })
-          };
-          if(action.payload ==='DB'){
-            state.dogs.forEach(dog => {
-              if(typeof dog.id === 'string'){
-                filterByData.push(dog)
+          } else{
+            todosPerros.forEach(dog => {
+              if (typeof(dog.id)==='string') {
+                filterDogsData.push(dog);
               }
             })
           }
 
           return {
             ...state,
-            allDogs:filterByData,
-          }
+            allDogs: filterDogsData,
+          };
 
     default:
       return {...state}

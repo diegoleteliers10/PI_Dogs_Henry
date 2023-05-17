@@ -8,9 +8,11 @@ const Nav = (props) => {
     <nav className={style.navBar}>
 
       <button className={style.logoButton} onClick={() => window.location.reload()}>
-        <Link  to='/home'><img src='logo-no-background.png' alt="logo" className={style.logo}/></Link>
+      <img src='logo-no-background.png' alt="logo" className={style.logo}/>
       </button>
       <div  className={style.buttonsCont}>
+
+        <Link  to='/home' className={style.homeLink} tabIndex={0}>Home</Link>
 
         <button className={style.button}>
           <span className={style.button__text}>Add a Dog</span>

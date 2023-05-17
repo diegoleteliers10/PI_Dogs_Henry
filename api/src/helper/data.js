@@ -10,6 +10,7 @@ const getApi= async ()=>{
   //hacemos un map para extraerlos y agregarlos a un array
   const data = response.data.map(dog=>{
 
+    if(dog.id)
     return {
       id: dog.id,
       image: dog.image.url,
@@ -22,7 +23,6 @@ const getApi= async ()=>{
     }
 
   })
-  
   //devolvemos toda la data
   return data
 }

@@ -165,8 +165,8 @@ label {
 
 .inputImgForm{
   border-radius: 20px;
-  height: 25px;
-  width: 19rem;
+  height: 18px;
+  width: 15rem;
   position: relative;
   left: 11rem;
   border: 1px solid #F4DFBA;
@@ -176,9 +176,15 @@ label {
   padding: 5px 5px 5px 10px;
 }
 
-/* input[type="file"]{
-  border-radius: 10px;
-} */
+.inputImgForm::placeholder {
+  color: black;
+  opacity: 0.2;
+}
+
+.inputImgForm:focus::placeholder {
+  opacity: 0;
+  transition: all 0.3s;
+}
 
 .titleForm{
   position:absolute;

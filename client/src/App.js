@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { showAllDogs } from './redux/actions';
-import {getAllTemperaments, showDogsNonFilter} from  './redux/actions'
+import {getAllTemperaments} from  './redux/actions'
 import Form from './components/Form/Form';
 
 
@@ -38,7 +38,7 @@ function App() {
 
   useEffect(()=>{
     dispatch(showAllDogs()) //despachamos nuestra funcion showAllDogs de donde obtenemos todos los dogs
-    dispatch(getAllTemperaments())
+    dispatch(getAllTemperaments())//despachamos la funcion getAllTemperaments de donde obtenemos todos los temperamentos
   },[dispatch])
 
   return (

@@ -76,21 +76,19 @@ const handleChange = (event) => {
 
 //para guardar el cambio de imagen del form en nuestro state
 const handleImgChange=(event)=>{
-  const file=  event.target.files[0]
-  const nameFile= event.target.files[0].name
+  const imagen=  event.target.value
   const imageRegex= /^.*\.(jpg|jpeg|png)$/i
   console.log(document.upload)
-  if(!imageRegex.test(nameFile)){
+  if(!imageRegex.test(imagen)){
     document.upload.src= "upload_vector.png"
     window.alert("Please upload a valid image")
   }
   else{
-    const imgUrl=  URL.createObjectURL(file)
     setData({
       ...dogData,
-      image: imgUrl,
+      image: imagen,
     });
-    document.upload.src= imgUrl
+    document.upload.src= `${imagen}`
   }
 }
 
@@ -193,7 +191,7 @@ const validationLife=(doggy)=>{
           </select>
 
           <label htmlFor="image" className={style.imgUrl}>Upload a image:</label>
-          <input type="file" name="image" onChange={handleImgChange} className={style.inputImgForm}/>
+          <input type="text" name="image" onChange={handleImgChange} className={style.inputImgForm} placeholder='Image URL'/>
           <img src='upload_vector.png' alt="upload" name='upload' className={style.imgUpload}/>
 
           

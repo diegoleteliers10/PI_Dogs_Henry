@@ -1,5 +1,5 @@
 
-import { DETAIL_DOG, DOG_BREED, FILTER_TEMPS, SHOW_ALL, SHOW_TEMPS, ORDERED_ABECE, ORDERED_WEIGHT, FILTER_BY_DATA} from "./action-types"
+import { DETAIL_DOG, DOG_BREED, FILTER_TEMPS, SHOW_ALL, SHOW_TEMPS, ORDERED_ABECE, ORDERED_WEIGHT, FILTER_BY_DATA, DELETE_DOG_SUCCESS} from "./action-types"
 
 const initialState= {
   allDogs: [],
@@ -142,6 +142,14 @@ const reducer= (state=initialState,action)=>{
             ...state,
             allDogs: filterDogsData,
           };
+
+          case DELETE_DOG_SUCCESS:
+            const updatedDogs = state.allDogs.filter(dog => dog.id !== action.payload);
+            return {
+              ...state,
+              allDogs: updatedDogs
+            };
+
 
     default:
       return {...state}

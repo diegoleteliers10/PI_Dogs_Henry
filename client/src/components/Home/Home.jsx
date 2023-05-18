@@ -42,12 +42,13 @@ const Home = (props) => {
       )
    });
 
-   //creamos la funcion para crear los cards en base al array acortado a mostrar
+   //creamos la funcion para crear los temperamentos en options del select correspondiente
    const temps= temperamentos.map(temp=>{
     return (
       <option value={temp.name} key={temp.id}>{temp.name}</option>
     )
    })
+   
    //creamos la funcion para despachar los actions
   const handleFilter = (event)=>{
     event.preventDefault();

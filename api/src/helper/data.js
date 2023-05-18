@@ -39,6 +39,7 @@ const getDb = async () => {
     }
   });
 
+  //de la respuesta de los datos de la db haga un mapeado donde devuelva un objeto con todos las propiedades de la db y que el temperamento sea igual a su propiedad temperaments donde tomamos los nombres y les hacemos un join para que quede como string
   const dogsWithTemperaments = response.map(dog => ({
     ...dog.dataValues,
     temperament: dog.temperaments.map(temp => temp.name).join(', ')

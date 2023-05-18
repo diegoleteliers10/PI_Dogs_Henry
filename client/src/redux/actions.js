@@ -1,4 +1,4 @@
-import {SHOW_ALL, DETAIL_DOG, DOG_BREED, SHOW_TEMPS, FILTER_TEMPS, ORDERED_ABECE, ORDERED_WEIGHT, FILTER_BY_DATA} from "./action-types"
+import {SHOW_ALL, DETAIL_DOG, DOG_BREED, SHOW_TEMPS, FILTER_TEMPS, ORDERED_ABECE, ORDERED_WEIGHT, FILTER_BY_DATA, DELETE_DOG_SUCCESS} from "./action-types"
 import axios from "axios";
 
 //mostramos todos los perros
@@ -75,3 +75,13 @@ export const createDog= (payload)=>{
     const createdDog= {name:name, image:image, height:`${min_height} - ${max_height}`, weight:`${min_weight} - ${max_weight}`, life_span:life_span, temperaments:temperaments.join(', ')}
     axios.post('http://localhost:3001/dogs', createdDog)
 }
+
+export const deleteDog = (id) => {
+  return async function (dispatch) {
+    axios.delete(`http://localhost:3001/dogs/${id}`)
+    dispatch({ 
+        type: DELETE_DOG_SUCCESS,
+         payload: id 
+        })
+  };
+}; //revisar manana el error

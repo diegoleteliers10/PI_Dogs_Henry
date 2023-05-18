@@ -136,3 +136,10 @@
   stroke: #EEC373;
   fill: #EEC373;
 }
+
+.deleteBtn{
+  position:absolute;
+  right: -2rem;
+  bottom: -1rem;
+  cursor: pointer;
+}

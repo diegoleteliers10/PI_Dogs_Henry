@@ -4,6 +4,7 @@ const getRaza = require('../Controllers/getRaza');
 const getByName = require('../Controllers/getByName');
 const postDog = require('../Controllers/postDog');
 const tempToDb = require('../Controllers/tempToDb');
+const deleteDog = require('../Controllers/deleteDogs');
 
 
 // Importar todos los routers;
@@ -25,6 +26,8 @@ router.get('/dog/name', getByName)
 router.post('/dogs',postDog)
 
 router.get('/temperaments',tempToDb)
+
+router.delete('/dogs/:idDelete',deleteDog)
 
 
 module.exports = router;

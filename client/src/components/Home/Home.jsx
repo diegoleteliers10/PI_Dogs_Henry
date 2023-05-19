@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Home.module.css';
 import Card from '../Card/Card';
 import Paginado from '../Paginado/Paginado';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import {filterTemps, orderByWeight, orderDogsAbece, filteredByData} from '../../redux/actions'
 import { useSelector } from 'react-redux';
@@ -48,6 +48,12 @@ const Home = (props) => {
       <option value={temp.name} key={temp.id}>{temp.name}</option>
     )
    })
+
+  useEffect(() => {
+    // Aquí puedes realizar cualquier acción que necesites al cambiar la variable dogs
+    // Por ejemplo, puedes establecer la página actual en 1 cuando dogs cambie
+    setPagAct(1);
+  }, [dogs]);
    
    //creamos la funcion para despachar los actions
   const handleFilter = (event)=>{

@@ -4,7 +4,7 @@ import axios from "axios";
 //mostramos todos los perros
 export const showAllDogs= () => {
     return async function (dispatch) {
-        let dogs = await axios.get('http://localhost:3001/dogs');
+        let dogs = await axios.get('https://dogsapi-b2s8.onrender.com/dogs');
         return dispatch({//necesario para despachar la accion
             type: SHOW_ALL,
             payload: dogs.data
@@ -26,7 +26,7 @@ export const orderDogsAbece=(payload)=>{
 export function DogDetails(id) {
     return async function (dispatch) {
         try {
-            let dogDetail = await axios.get(`http://localhost:3001/dogs/${id}`)
+            let dogDetail = await axios.get(`https://dogsapi-b2s8.onrender.com/${id}`)
             return dispatch({
                 type: DETAIL_DOG,
                 payload: dogDetail.data
@@ -40,7 +40,7 @@ export function DogDetails(id) {
 //encontrar las razas por nombre
 export function getDogBreed(name) {
     return async function (dispatch) {
-        let breedDogs = await axios.get(`http://localhost:3001/dog/name?nameRaza=${name}`);
+        let breedDogs = await axios.get(`https://dogsapi-b2s8.onrender.com/dog/name?nameRaza=${name}`);
         return dispatch({//necesario para despachar la accion
             type: DOG_BREED,
             payload: breedDogs.data
@@ -51,7 +51,7 @@ export function getDogBreed(name) {
 //traer a todos los temperamentos
 export const getAllTemperaments=()=>{
     return async function (dispatch) {
-        let dogs = await axios.get('http://localhost:3001/temperaments');
+        let dogs = await axios.get('https://dogsapi-b2s8.onrender.com/temperaments');
         return dispatch({//necesario para despachar la accion
             type: SHOW_TEMPS,
             payload: dogs.data
@@ -73,12 +73,12 @@ export const filteredByData= (payload)=>{
 export const createDog= (payload)=>{
     const {name, image, min_height,max_height, min_weight, max_weight, life_span, temperaments}=payload
     const createdDog= {name:name, image:image, height:`${min_height} - ${max_height}`, weight:`${min_weight} - ${max_weight}`, life_span:life_span, temperaments:temperaments.join(', ')}
-    axios.post('http://localhost:3001/dogs', createdDog)
+    axios.post('https://dogsapi-b2s8.onrender.com/dogs', createdDog)
 }
 
 export const deleteDog = (id) => {
   return async function (dispatch) {
-    axios.delete(`http://localhost:3001/dogs/${id}`)
+    axios.delete(`https://dogsapi-b2s8.onrender.com/dogs/${id}`)
     dispatch({ 
         type: DELETE_DOG_SUCCESS,
          payload: id 

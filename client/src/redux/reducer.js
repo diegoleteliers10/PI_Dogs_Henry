@@ -43,11 +43,9 @@ const reducer= (state=initialState,action)=>{
       if(action.payload === 'All') {
         filterDogsTemp = allDogs
       } else {
-        allDogs.forEach(dog => {
+        filterDogsTemp= allDogs.filter(dog => {
           let found = dog.temperament?.includes(action.payload)
-          if (found) {
-            filterDogsTemp.push(dog);
-          }
+          return found
         })
       }
 

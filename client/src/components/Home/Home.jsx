@@ -43,7 +43,7 @@ const Home = (props) => {
       )
    });
 
-   //creamos la funcion para crear los temperamentos en options del select correspondiente
+   //creamos la funcion para crear los temperamentos en options del select correspondiente y ademas filtramos los temperamentos para que muestren solo los que no esten vacios
    const tempsFiltrados= temperamentos.filter(temp=>temp.name!=="")
    const temps= tempsFiltrados.map(temp=>{
       return (
@@ -53,7 +53,7 @@ const Home = (props) => {
 
   useEffect(() => {
     dispatch(showAllDogs())
-  }, [dogs, dispatch]);
+  }, [ dispatch]);
    
    //creamos la funcion para despachar los actions
   const handleFilter = (event)=>{

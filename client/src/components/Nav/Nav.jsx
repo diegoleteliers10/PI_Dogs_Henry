@@ -8,7 +8,7 @@ const Nav = (props) => {
     <nav className={style.navBar}>
 
       <button className={style.logoButton} onClick={() => window.location.reload()}>
-      <img src='logo-no-background.png' alt="logo" className={style.logo}/>
+      <img src='/logo-no-background.png' alt="logo" className={style.logo}/>
       </button>
       <div  className={style.buttonsCont}>
 

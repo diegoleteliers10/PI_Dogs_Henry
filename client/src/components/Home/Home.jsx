@@ -44,7 +44,7 @@ const Home = (props) => {
    });
 
    //creamos la funcion para crear los temperamentos en options del select correspondiente
-   const tempsFiltrados= temperamentos.map(temp=> temp.name!=="")
+   const tempsFiltrados= temperamentos.filter(temp=>temp.name!=="")
    const temps= tempsFiltrados.map(temp=>{
       return (
       <option value={temp.name} key={temp.id}>{temp.name}</option>

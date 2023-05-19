@@ -17,11 +17,10 @@ const Card = (props) => {
 
   //retornamos los datos de cada card
   return(
-      <Link to={`/detail/${id}`} className={styles.cardLink}>
         <div className={styles.cardDog} >
           <img src={image} alt={name} className={styles.imgDog}/>
           <section className={styles.cardInfo}>
-            <h2 className={styles.name}>{name}</h2>
+            <Link to={`/detail/${id}`} className={styles.cardLink}><h2 className={styles.name}>{name}</h2></Link>
             <p>{temperament}</p>
             <p>Peso: {weight} kg</p>
           </section>
@@ -29,7 +28,6 @@ const Card = (props) => {
           <button className={styles.deleteBtn} onClick={handleDelete}>X</button>
         )}
         </div>
-      </Link>
   )
 }
 

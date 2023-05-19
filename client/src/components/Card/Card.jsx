@@ -11,8 +11,8 @@ const Card = (props) => {
   const dispatch = useDispatch();
 
   const handleDelete = (event) => {
-  event.stopPropagation();
-  dispatch(deleteDog(id));
+    event.stopPropagation();
+    dispatch(deleteDog(id));
   };
 
   //retornamos los datos de cada card

@@ -77,11 +77,20 @@ export const createDog= (payload)=>{
 }
 
 export const deleteDog = (id) => {
-  return async function (dispatch) {
-    axios.delete(`https://dogsapi-b2s8.onrender.com/dogs/${id}`)
-    dispatch({ 
-        type: DELETE_DOG_SUCCESS,
-         payload: id 
-        })
-  };
+   const endpoint = `https://dogsapi-b2s8.onrender.com/dogs/${id}`;
+   return async(dispatch) => {
+      try{
+         const response= await axios.delete(endpoint);
+         dispatch({
+            type: DELETE_DOG_SUCCESS,
+            payload: response.data
+         })
+      }
+      catch(error){
+         return {
+            type:Error,
+            payload:error
+         }
+      }
+   }
 }; //revisar manana el error

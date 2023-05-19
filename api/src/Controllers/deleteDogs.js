@@ -1,4 +1,5 @@
 const { Dog } = require('../db');
+const { getAllDogs } = require('../helper/data');
 
 
 const deleteDog = async (req, res) => {
@@ -17,7 +18,8 @@ const deleteDog = async (req, res) => {
     // Eliminamos el perro de la base de datos
     await dog.destroy();
 
-    res.status(200).send({ message: 'Perro eliminado' });
+    const newAllDogs= await getAllDogs();
+    res.status(200).send(newAllDogs);
   } catch (error) {
     res.status(500).send({ message: error.message });
   }

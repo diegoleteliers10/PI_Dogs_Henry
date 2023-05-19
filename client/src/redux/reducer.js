@@ -144,10 +144,9 @@ const reducer= (state=initialState,action)=>{
           };
 
           case DELETE_DOG_SUCCESS:
-            const updatedDogs = state.allDogs.filter(dog => dog.id !== action.payload);
             return {
               ...state,
-              allDogs: updatedDogs
+              allDogs: action.payload
             };
 
 

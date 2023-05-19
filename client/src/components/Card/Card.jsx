@@ -11,7 +11,6 @@ const Card = (props) => {
   const dispatch = useDispatch();
 
   const handleDelete = (event) => {
-    event.stopPropagation();
     dispatch(deleteDog(id));
   };
 
@@ -21,7 +20,7 @@ const Card = (props) => {
           <img src={image} alt={name} className={styles.imgDog}/>
           <section className={styles.cardInfo}>
             <Link to={`/detail/${id}`} className={styles.cardLink}><h2 className={styles.name}>{name}</h2></Link>
-            <p>{temperament}</p>
+            <p>{temperament?.split(", ").slice(0,3).join(", ")}</p>
             <p>Peso: {weight} kg</p>
           </section>
         {typeof id !== 'number' && (

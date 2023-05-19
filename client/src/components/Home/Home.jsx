@@ -14,6 +14,7 @@ const Home = (props) => {
   //manipulamos los elementos de nuestro array de items para mostrarlos en pantalla y usarlos con el paginado
   const {temperamentos}=props
   const dogs = useSelector(state => state.allDogs);
+  console.log(dogs)
   
   //seteamos la pagina actual en 1
   const [pagAct, setPagAct] = useState(1);
@@ -37,7 +38,7 @@ const Home = (props) => {
               id={dog.id}
               image={dog.image}
               name={dog.name}
-              temperament={dog.temperament.split(", ").slice(0,3).join(", ")}
+              temperament={dog.temperament}
               weight={dog.weight}
             />
       )

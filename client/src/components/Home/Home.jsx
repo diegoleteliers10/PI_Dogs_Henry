@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import {filterTemps, orderByWeight, orderDogsAbece, filteredByData} from '../../redux/actions'
 import { useSelector } from 'react-redux';
+import { showAllDogs } from '../../redux/actions';
 
 const Home = (props) => {
 
@@ -50,8 +51,8 @@ const Home = (props) => {
    })
 
   useEffect(() => {
-    window.location.reload()
-  }, [dogs]);
+    dispatch(showAllDogs())
+  }, [dogs, dispatch]);
    
    //creamos la funcion para despachar los actions
   const handleFilter = (event)=>{

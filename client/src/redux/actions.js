@@ -26,7 +26,7 @@ export const orderDogsAbece=(payload)=>{
 export function DogDetails(id) {
     return async function (dispatch) {
         try {
-            let dogDetail = await axios.get(`https://dogsapi-b2s8.onrender.com/${id}`)
+            let dogDetail = await axios.get(`https://dogsapi-b2s8.onrender.com/dogs/${id}`)
             return dispatch({
                 type: DETAIL_DOG,
                 payload: dogDetail.data

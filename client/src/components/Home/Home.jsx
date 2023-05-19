@@ -37,7 +37,7 @@ const Home = (props) => {
               id={dog.id}
               image={dog.image}
               name={dog.name}
-              temperament={dog.temperament}
+              temperament={dog.temperament.split(", ").slice(0,3).join(", ")}
               weight={dog.weight}
             />
       )

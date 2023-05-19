@@ -50,8 +50,7 @@ const getDb = async () => {
 
 const getAllDogs= async ()=>{
   //recolectamos tanto la data de la api como la de la base de datos
-  const apiData= await getApi();
-  const dbData= await getDb();
+  const [apiData, dbData] = await Promise.all([getApi(), getDb()]);
   //unimos ambas datas
   const allData= dbData.concat(apiData);
   //devolvemos la data completa

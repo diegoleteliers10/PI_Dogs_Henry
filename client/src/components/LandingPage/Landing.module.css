@@ -96,8 +96,9 @@
   font-weight: 800;
   position: relative;
   bottom: 8.3rem;
-  left: 16rem;
+  left: 16.2rem;
   color: #F4DFBA;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
 }
 
 .subtiLanding{

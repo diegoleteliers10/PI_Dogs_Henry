@@ -20,7 +20,7 @@ const Card = (props) => {
           <img src={image} alt={name} className={styles.imgDog}/>
           <section className={styles.cardInfo}>
             <Link to={`/detail/${id}`} className={styles.cardLink}><h2 className={styles.name}>{name}</h2></Link>
-            <p>{temperament?.split(", ").slice(0,3).join(", ")}</p>
+            <p>{temperament}</p>
             <p>Peso: {weight} kg</p>
           </section>
         {typeof id !== 'number' && (

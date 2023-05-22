@@ -112,9 +112,9 @@ export const deleteDog = (id) => {
    }
 }; 
 
-export const updateDog= async(payload)=>{
+//hacemos update de cada perro, lo que hace que se actualice la db sin necesidad de despachar nuevamente todos los perros.
+export const updateDog= async (payload)=>{
   const {idUpdate,name, min_height,max_height, min_weight, max_weight, life_span, temperaments}=payload
-  const endpoint=`https://dogsapi-b2s8.onrender.com/dog/update/${idUpdate}`
   const editedDog= {name:name, height:`${min_height} - ${max_height}`, weight:`${min_weight} - ${max_weight}`, life_span:life_span, temperaments:temperaments.join(', ')}
-  await axios.put(endpoint, editedDog)
+  await axios.put(`https://dogsapi-b2s8.onrender.com/dog/update/${idUpdate}`, editedDog)
 }

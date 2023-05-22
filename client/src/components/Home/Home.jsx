@@ -11,11 +11,10 @@ import { showAllDogs } from '../../redux/actions';
 const Home = (props) => {
 
   const dispatch= useDispatch();
-  //manipulamos los elementos de nuestro array de items para mostrarlos en pantalla y usarlos con el paginado
+  //traemos los temperamentos de la api
   const {temperamentos}=props
-  console.log(temperamentos)
+  //
   const dogs = useSelector(state => state.allDogs);
-  console.log(dogs)
   
   //seteamos la pagina actual en 1
   const [pagAct, setPagAct] = useState(1);
@@ -53,6 +52,7 @@ const Home = (props) => {
       )
    })
 
+   //el useEffect nos ayuda a que cada vez que se produzca un cambio en el showAllDogs, se ejecute la funcion showAllDogs y se despache.
   useEffect(() => {
     dispatch(showAllDogs())
   }, [ dispatch]);

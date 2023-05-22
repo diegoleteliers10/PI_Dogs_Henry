@@ -1,4 +1,3 @@
-import { useDispatch } from 'react-redux'
 import React from 'react'
 import style from './EditForm.module.css'
 import { useParams } from 'react-router-dom'
@@ -7,8 +6,6 @@ import { useState } from 'react'
 import {updateDog} from '../../redux/actions'
 
 const EditForm = () => {
-
-  const dispatch=useDispatch()
   
   //conseguimos al perro que queremos editar
   const {idEdit}=useParams()
@@ -16,8 +13,8 @@ const EditForm = () => {
   const allDogs=useSelector(state=>state.dogs)
   // aqui encontramos al perro, para mostrar sus valores al cliente, para que sepa que va a editar
   const dog=allDogs.find(dog=>dog?.id===idEdit)
-  console.log(dog)
 
+  //seteamos los nuevos datos de nuestro perro
   let [newDogData,setNewData]=useState({
     idUpdate:dog?.id || "",
     name:"",
@@ -29,9 +26,7 @@ const EditForm = () => {
     temperaments:[],
   })
 
-  console.log(newDogData)
-
-
+  //seteamos los nuevos datos de nuestro perro a traves del form donde cada vez que se cambien los datos este cambio se vea reflejado
   const handleChange = (event) => {
   const { name, value } = event.target;
   
@@ -68,10 +63,11 @@ const EditForm = () => {
       )
   })
 
+  //aqui usamos el boton para subir los datos y actualizar al perro
   const handleSubmit=async(event)=>{
       event.preventDefault()
       if(newDogData.name!=="" && newDogData.min_height!=="" && newDogData.max_height!=="" && newDogData.min_weight!=="" && newDogData.max_weight!=="" && newDogData.life_span!=="" && newDogData.temperaments.length!==0){
-        dispatch(updateDog(newDogData))
+        updateDog(newDogData)
         alert("Dog update successfully")
       };
       if(newDogData.name==="" && newDogData.min_height==="" && newDogData.max_height==="" && newDogData.min_weight==="" && newDogData.max_weight==="" && newDogData.life_span==="" && newDogData.temperaments.length===0){

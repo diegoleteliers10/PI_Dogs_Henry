@@ -1,4 +1,4 @@
-import {SHOW_ALL, DETAIL_DOG, DOG_BREED, SHOW_TEMPS, FILTER_TEMPS, ORDERED_ABECE, ORDERED_WEIGHT, FILTER_BY_DATA, DELETE_DOG_SUCCESS, EDITED_DOG} from "./action-types"
+import {SHOW_ALL, DETAIL_DOG, DOG_BREED, SHOW_TEMPS, FILTER_TEMPS, ORDERED_ABECE, ORDERED_WEIGHT, FILTER_BY_DATA, DELETE_DOG_SUCCESS} from "./action-types"
 import axios from "axios";
 
 //mostramos todos los perros
@@ -86,10 +86,10 @@ export const filteredByData= (payload)=>{
 }
 
 //para crear el perro en la db
-export const createDog= (payload)=>{
+export const createDog= async (payload)=>{
     const {name, image, min_height,max_height, min_weight, max_weight, life_span, temperaments}=payload
     const createdDog= {name:name, image:image, height:`${min_height} - ${max_height}`, weight:`${min_weight} - ${max_weight}`, life_span:life_span, temperaments:temperaments.join(', ')}
-    axios.post('https://dogsapi-b2s8.onrender.com/dogs', createdDog)
+    await axios.post('https://dogsapi-b2s8.onrender.com/dogs', createdDog)
 }
 
 //para eliminar al perro
@@ -112,23 +112,9 @@ export const deleteDog = (id) => {
    }
 }; 
 
-export const updateDog=(payload)=>{
-  const {id,name, min_height,max_height, min_weight, max_weight, life_span, temperaments}=payload
-  const endpoint=`https://dogsapi-b2s8.onrender.com/dog/update/${id}`
+export const updateDog= async(payload)=>{
+  const {idUpdate,name, min_height,max_height, min_weight, max_weight, life_span, temperaments}=payload
+  const endpoint=`https://dogsapi-b2s8.onrender.com/dog/update/${idUpdate}`
   const editedDog= {name:name, height:`${min_height} - ${max_height}`, weight:`${min_weight} - ${max_weight}`, life_span:life_span, temperaments:temperaments.join(', ')}
-  return async(dispatch)=>{
-    try {
-      const response=axios.put(endpoint, editedDog)
-      dispatch({
-        type: EDITED_DOG,
-        payload: response.data
-      })
-
-    } catch (error) {
-        return {
-          type:Error,
-          payload:error
-        }
-    }
-  }
+  await axios.put(endpoint, editedDog)
 }

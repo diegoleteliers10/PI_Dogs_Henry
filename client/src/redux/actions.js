@@ -114,8 +114,8 @@ export const deleteDog = (id) => {
 
 export const updateDog=(payload)=>{
   const {id,name, min_height,max_height, min_weight, max_weight, life_span, temperaments}=payload
-  const endpoint=`https://dogsapi-b2s8.onrender.com/dogs/update/${id}`
-  const editedDog= {idUpdate:id, name:name, height:`${min_height} - ${max_height}`, weight:`${min_weight} - ${max_weight}`, life_span:life_span, temperaments:temperaments.join(', ')}
+  const endpoint=`https://dogsapi-b2s8.onrender.com/dog/update/${id}`
+  const editedDog= {name:name, height:`${min_height} - ${max_height}`, weight:`${min_weight} - ${max_weight}`, life_span:life_span, temperaments:temperaments.join(', ')}
   return async(dispatch)=>{
     try {
       const response=axios.put(endpoint, editedDog)

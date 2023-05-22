@@ -5,6 +5,7 @@ const { getAllDogs } = require('../helper/data');
 const updateDog = async (req, res) => {
   const { name, temperaments, weight, height, life_span } = req.body;
   const { idUpdate } = req.params;
+  console.log(idUpdate)
 
   try {
     //SETEAMOS LOS NUEVOS DATOS

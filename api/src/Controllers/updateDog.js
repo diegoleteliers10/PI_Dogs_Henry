@@ -2,8 +2,10 @@ const { Dog, Temperament} = require('../db');
 const { getAllDogs } = require('../helper/data');
 
 
-const deleteDog = async (req, res) => {
-  const { idUpdate, name, temperaments, weight, height, life_span } = req.params;
+const updateDog = async (req, res) => {
+  const { name, temperaments, weight, height, life_span } = req.body;
+  const { idUpdate } = req.params;
+
   try {
     //SETEAMOS LOS NUEVOS DATOS
     const dog = await Dog.update(
@@ -29,4 +31,4 @@ const deleteDog = async (req, res) => {
   }
 };
 
-module.exports= deleteDog;
+module.exports= updateDog;

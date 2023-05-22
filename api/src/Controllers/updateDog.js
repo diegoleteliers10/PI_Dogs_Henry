@@ -31,9 +31,7 @@ const updateDog = async (req, res) => {
       const dogTemp= await Temperament.findAll({where:{name:e}})
       dog.addTemperament(dogTemp)
     })
-
-    const newAllDogs = await getAllDogs();
-    res.status(200).send(newAllDogs);
+    res.status(200).send({message: 'Perro actualizado' });
   } catch (error) {
     res.status(500).send({ message: error.message });
   }

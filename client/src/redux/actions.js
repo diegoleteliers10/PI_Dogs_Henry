@@ -118,7 +118,7 @@ export const updateDog=(payload)=>{
   const editedDog= {idUpdate:id, name:name, height:`${min_height} - ${max_height}`, weight:`${min_weight} - ${max_weight}`, life_span:life_span, temperaments:temperaments.join(', ')}
   return async(dispatch)=>{
     try {
-      const response=axios.post(endpoint, editedDog)
+      const response=axios.put(endpoint, editedDog)
       dispatch({
         type: EDITED_DOG,
         payload: response.data

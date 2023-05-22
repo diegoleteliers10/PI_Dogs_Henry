@@ -12,6 +12,9 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import {getAllTemperaments} from  './redux/actions'
 import Form from './components/Form/Form';
+import EditForm from './components/EditForm/EditForm';
+
+
 
 
 
@@ -48,7 +51,7 @@ function App() {
         <Route path='/home' element={<Home temperamentos={allTemperaments}/>}/>
         <Route path='/detail/:id' element={<DetailDog/>}/>
         <Route path='/formDog' element={<Form />}/>
-        
+        <Route path='/edit/:idEdit' element={<EditForm />} />
       </Routes>
     </div>
   );

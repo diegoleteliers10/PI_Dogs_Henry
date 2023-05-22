@@ -13,6 +13,7 @@ const Home = (props) => {
   const dispatch= useDispatch();
   //manipulamos los elementos de nuestro array de items para mostrarlos en pantalla y usarlos con el paginado
   const {temperamentos}=props
+  console.log(temperamentos)
   const dogs = useSelector(state => state.allDogs);
   console.log(dogs)
   

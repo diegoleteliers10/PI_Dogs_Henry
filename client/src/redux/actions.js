@@ -1,15 +1,23 @@
-import {SHOW_ALL, DETAIL_DOG, DOG_BREED, SHOW_TEMPS, FILTER_TEMPS, ORDERED_ABECE, ORDERED_WEIGHT, FILTER_BY_DATA, DELETE_DOG_SUCCESS} from "./action-types"
+import {SHOW_ALL, DETAIL_DOG, DOG_BREED, SHOW_TEMPS, FILTER_TEMPS, ORDERED_ABECE, ORDERED_WEIGHT, FILTER_BY_DATA, DELETE_DOG_SUCCESS, EDITED_DOG} from "./action-types"
 import axios from "axios";
 
 //mostramos todos los perros
-export const showAllDogs= () => {
-    return async function (dispatch) {
-        let dogs = await axios.get('https://dogsapi-b2s8.onrender.com/dogs');
-        return dispatch({//necesario para despachar la accion
-            type: SHOW_ALL,
-            payload: dogs.data
-        });
+export const showAllDogs = () => {
+  return async function (dispatch) {
+    try {
+      let dogs = await axios.get('https://dogsapi-b2s8.onrender.com/dogs');
+      return dispatch({
+        type: SHOW_ALL,
+        payload: dogs.data
+      });
+    } catch (error) {
+      // Manejo del error
+      return dispatch({
+        type : SHOW_ALL,
+        payload : error.message
+      });
     }
+  };
 };
 
 //hacemos el filtrado de los temperamentos
@@ -49,15 +57,23 @@ export function getDogBreed(name) {
 }
 
 //traer a todos los temperamentos
-export const getAllTemperaments=()=>{
-    return async function (dispatch) {
-        let dogs = await axios.get('https://dogsapi-b2s8.onrender.com/temperaments');
-        return dispatch({//necesario para despachar la accion
-            type: SHOW_TEMPS,
-            payload: dogs.data
-        });
+export const getAllTemperaments = () => {
+  return async function (dispatch) {
+    try {
+      let dogs = await axios.get('https://dogsapi-b2s8.onrender.com/temperaments');
+      return dispatch({
+        type: SHOW_TEMPS,
+        payload: dogs.data
+      });
+    } catch (error) {
+      // Manejo del error
+      return dispatch({
+        type : SHOW_TEMPS,
+        payload : error.message
+      });
     }
-}
+  };
+};
 
 //ordenar por peso
 export const orderByWeight= (payload)=>{
@@ -76,6 +92,7 @@ export const createDog= (payload)=>{
     axios.post('https://dogsapi-b2s8.onrender.com/dogs', createdDog)
 }
 
+//para eliminar al perro
 export const deleteDog = (id) => {
    const endpoint = `https://dogsapi-b2s8.onrender.com/dogs/${id}`;
    return async(dispatch) => {
@@ -93,4 +110,25 @@ export const deleteDog = (id) => {
          }
       }
    }
-}; //revisar manana el error
+}; 
+
+export const updateDog=(payload)=>{
+  const {id,name, min_height,max_height, min_weight, max_weight, life_span, temperaments}=payload
+  const endpoint=`https://dogsapi-b2s8.onrender.com/dogs/update/${id}`
+  const editedDog= {idUpdate:id, name:name, height:`${min_height} - ${max_height}`, weight:`${min_weight} - ${max_weight}`, life_span:life_span, temperaments:temperaments.join(', ')}
+  return async(dispatch)=>{
+    try {
+      const response=axios.post(endpoint, editedDog)
+      dispatch({
+        type: EDITED_DOG,
+        payload: response.data
+      })
+
+    } catch (error) {
+        return {
+          type:Error,
+          payload:error
+        }
+    }
+  }
+}

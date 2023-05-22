@@ -18,7 +18,7 @@ const  Paginado = (props) => {
     }
 
     // Creamos una referencia que parta en null y la asignamos al botón activo
-    const activeButtonRef = useRef(null);
+    const activeButtonRef = useRef(pagAct);
     // Función para manejar el clic en el botón de página, que a medida que cambia la pagAct se actualiza el valor de activeButtonRef
     useEffect(() => {
         activeButtonRef.current.focus();

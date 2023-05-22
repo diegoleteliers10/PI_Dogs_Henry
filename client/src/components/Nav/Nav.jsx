@@ -1,9 +1,18 @@
 import style from './Nav.module.css'
 import { Link } from 'react-router-dom'
 import SearchBar from '../SearchBar/SearchBar'
+import { useRef } from 'react'
+import { useEffect } from 'react'
 
 
 const Nav = (props) => {
+
+    // Creamos una referencia que parta en null y la asignamos al botón activo
+  const home = useRef(null);
+  // Función para manejar el clic en el botón de página, que a medida que cambia la pagAct se actualiza el valor de activeButtonRef
+  useEffect(() => {
+      home.current.focus();
+  }, []);
   return (
     <nav className={style.navBar}>
 
@@ -12,7 +21,7 @@ const Nav = (props) => {
       </button>
       <div  className={style.buttonsCont}>
 
-        <Link  to='/home' className={style.homeLink} tabIndex={0}>Home</Link>
+        <Link  to='/home' className={style.homeLink} tabIndex={0} ref={home}>Home</Link>
 
         <button className={style.button}>
           <span className={style.button__text}>Add a Dog</span>

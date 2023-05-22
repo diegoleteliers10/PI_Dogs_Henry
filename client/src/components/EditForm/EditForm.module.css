@@ -1,0 +1,103 @@
+.EditContainer {
+  position: absolute;
+  background-color: #CA965C;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100vw;
+  height: -webkit-fill-available;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.labelEdit {
+  margin-right: 10px;
+  position: relative;
+  right: 3rem;
+  top: 0.1rem;
+}
+
+.titleEdit {
+  position: absolute;
+  top: -49px;
+  left: 181px;
+}
+
+.EditContent {
+  background: #CA965C;
+  width: 540px;
+  height: 529px;
+  border-radius: 45px;
+  box-shadow: inset -13px 13px 28px #8d6940, inset 13px -13px 28px #ffc378;
+}
+
+.EditDog {
+  height: 340px;
+  text-align: center;
+  position: relative;
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  top: 40px;
+  gap: 4px;
+}
+
+.nameEditForm {
+  position: relative;
+  right: 2rem;
+  top: 0.1rem;
+}
+
+.lifeEditForm {
+  position: relative;
+  right: 0.4rem;
+  top: 0.1rem;
+}
+
+.selectForm {
+  border-radius: 20px;
+  width: 10rem;
+  position: relative;
+  top: .5rem;
+  left: 11.5rem;
+  border: none;
+  background-color: #8d6940;
+  padding-left: 10px;
+}
+
+.labelEditTemps{
+  margin-right: 10px;
+  position: relative;
+  right: 2.1rem;
+  top: 0.1rem;
+}
+
+label,
+.titleForm {
+  color: #F4DFBA;
+}
+
+.inputForm {
+  border-radius: 20px;
+  height: 25px;
+  width: 12rem;
+  position: relative;
+  left: 10rem;
+  border: 1px solid #F4DFBA;
+  background-color: #8d6940;
+  box-shadow: inset -35px 35px 70px #785936,
+    inset 35px -35px 70px #a2794a;
+  padding-left: 15px;
+
+}
+
+.buttonEditForm {
+  width: 8rem;
+  height: 2.4rem;
+  border-radius: 15px;
+  position: relative;
+  left: 12.5rem;
+  top: 25px;
+  background-color: #8d6940;
+  border: none;
+  cursor: pointer;
+}

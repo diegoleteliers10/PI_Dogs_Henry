@@ -10,6 +10,7 @@ const Card = (props) => {
   const { id, image, name, temperament, weight } = props
   const dispatch = useDispatch();
 
+  //funcion en la cual eliminamos un perro
   const handleDelete = (event) => {
     dispatch(deleteDog(id));
   };
@@ -26,6 +27,10 @@ const Card = (props) => {
         {typeof id !== 'number' && (
           <button className={styles.deleteBtn} onClick={handleDelete}>X</button>
         )}
+        {typeof id !== 'number' && (
+          <Link to={`/edit/${id}`} className={styles.editLink}><button className={styles.updateBtn}>Edit</button></Link>
+        )}
+
         </div>
   )
 }

@@ -90,27 +90,27 @@ const Home = (props) => {
 
             <select className={style.select} onChange={handleOrdendAbecedario}>
               <option value="" disabled>Name</option>
-              <option value="All" selected>All</option>
+              <option value="All" defaultValue>All</option>
               <option value="A-Z" >A-Z</option>
               <option value="Z-A">Z-A</option>
             </select>
 
             <select className={style.selectPeso} onChange={handleWeightOrder}>
               <option value="Ordenar" disabled>Peso</option>
-              <option value="All" selected>All</option>
+              <option value="All" defaultValue>All</option>
               <option value="A">Ascendente</option>
               <option value="D">Descendiente</option>
             </select>
 
             <select className={style.select1} onChange={handleFilter}>
               <option value="" disabled>Temperamentos</option>  
-              <option value="All" selected>All</option>
+              <option value="All" defaultValue>All</option>
               {temps}
             </select>
 
             <select className={style.select1} onChange={handleByData}>
               <option value="" disabled>Dato</option>
-              <option value="All" selected>All</option>
+              <option value="All" defaultValue>All</option>
               <option value="API">API</option>
               <option value="DB">DB</option>
             </select>

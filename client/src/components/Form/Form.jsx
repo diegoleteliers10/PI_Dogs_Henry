@@ -52,7 +52,7 @@ const Form = () => {
 
   //para guardar el cambio del form en nuestro state
 const handleChange = (event) => {
-  const { name, value } = event.target;
+  const { name, value} = event.target;
   
   if (name === 'temperaments') {
     const newTemperamentos = [...dogData.temperaments, value];
@@ -91,6 +91,15 @@ const handleImgChange=(event)=>{
     document.upload.src= `${imagen}`
   }
 }
+
+//para eliminar los temperamentos del form
+const handleDeleteTemperament = (temperament) => {
+  const updatedTemperaments = dogData.temperaments.filter((temp) => temp !== temperament);
+  setData({
+    ...dogData,
+    temperaments: updatedTemperaments,
+  });
+};
 
 
 //para crear el perro 
@@ -186,7 +195,7 @@ const validationLife=(doggy)=>{
 
           <label htmlFor="temperaments" className={style.temperamentsForm}>Choose temperaments</label>
           <select name="temperaments" className={style.selectForm} onChange={handleChange}>
-            <option name='temperaments' value="Temperamentos" selected disabled>Temperamentos</option>
+            <option name='temperaments' value="Temperamentos" defaultValue disabled>Temperamentos</option>
             {temps}
           </select>
 
@@ -198,6 +207,23 @@ const validationLife=(doggy)=>{
 
           <button type='submit' className={style.buttonDogForm} onClick={handleSubmit} id='butonSubmit' disabled={isDisabled}>Create Dog</button>
         </form>
+
+        {dogData.temperaments.length !== 0 && (
+          <div className={style.tempsContainer}>
+            {dogData.temperaments.map((temperament) => (
+              <div className={style.eachTemps} key={temperament}>
+                <p className={style.textDeleteTemp}>{temperament}</p>
+                <button
+                  className={style.buttonDeleteTemp}
+                  value={temperament}
+                  onClick={() => handleDeleteTemperament(temperament)}
+                >
+                  x
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
     </div>

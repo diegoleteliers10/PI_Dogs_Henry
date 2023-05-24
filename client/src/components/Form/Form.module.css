@@ -199,3 +199,39 @@ label {
   bottom: -143px;
   right: 68px;
 }
+
+.tempsContainer{
+  position: absolute;
+  bottom: 11rem;
+  right: 18rem;
+  width: 13rem;
+  height: 13rem;
+  background-color: #8d6940;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.eachTemps{
+  width: 6rem;
+  height:1.5rem;
+  background-color: #745a3e;
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.buttonDeleteTemp{
+  border: none;
+  background: none;
+  color: #F4DFBA;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.textDeleteTemp{
+  font-size: 10px;
+  margin-left: 9px;
+  color: #F4DFBA;
+}

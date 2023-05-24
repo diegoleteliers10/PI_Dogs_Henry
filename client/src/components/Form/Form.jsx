@@ -8,7 +8,6 @@ const Form = () => {
 
   //treaemos los perros para poder comparar si ya esta creado o no
   const allDogs= useSelector(state=>state.allDogs)
-  console.log(allDogs)
   
 
   //traemos los temperamentos para usarlos al crear nuestro perro
@@ -55,6 +54,7 @@ const handleChange = (event) => {
   const { name, value} = event.target;
   
   if (name === 'temperaments') {
+    if(dogData.temperaments.includes(value)) return null;
     const newTemperamentos = [...dogData.temperaments, value];
     setData({
       ...dogData,

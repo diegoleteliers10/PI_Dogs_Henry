@@ -17,7 +17,8 @@ server.use(morgan('dev'));
 server.use((req, res, next) => {
   const allowedOrigins = [
     'http://localhost:3000',
-    'https://doggydeep.netlify.app'
+    'https://doggydeep.netlify.app',
+    'http://localhost:5100'
   ];
 
   const origin = req.headers.origin;

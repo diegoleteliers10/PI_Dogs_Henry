@@ -8,3 +8,4 @@ export const ORDERED_WEIGHT= 'ORDERED_WEIGHT';
 export const FILTER_BY_DATA= 'FILTER_BY_DATA';
 export const DELETE_DOG_SUCCESS= 'DELETE_DOG_SUCCESS'
 export const EDITED_DOG= 'EDITED_DOG';
+export const SET_PAGE= 'SET_PAGE';

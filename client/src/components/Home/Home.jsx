@@ -2,11 +2,12 @@ import React from 'react';
 import style from './Home.module.css';
 import Card from '../Card/Card';
 import Paginado from '../Paginado/Paginado';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import {filterTemps, orderByWeight, orderDogsAbece, filteredByData} from '../../redux/actions'
 import { useSelector } from 'react-redux';
 import { showAllDogs } from '../../redux/actions';
+import { setPage } from '../../redux/actions';
 
 const Home = (props) => {
 
@@ -16,18 +17,18 @@ const Home = (props) => {
   //
   const dogs = useSelector(state => state.allDogs);
   
-  //seteamos la pagina actual en 1
-  const [pagAct, setPagAct] = useState(1);
+  //seteamos la pagina actual en 1, gracias a nuestro state en redux
+  const pagAct = useSelector(state => state.pagAct);
   //cantidad de elementos por pagina
   const dogsInPag = 8;
   const lastIndex = pagAct * dogsInPag; 
   const firstIndex = lastIndex - dogsInPag;
   //elementos mostrados en la pagina
-  const actualDogs = dogs.slice(firstIndex, lastIndex);
+  const actualDogs = dogs?.slice(firstIndex, lastIndex);
 
-  //creamos la funcion para setear la pagina actual y la paginacion
+  //creamos la funcion para setear la pagina actual y la paginacion junto a su dispatch
   const paginate= (page)=>{
-    setPagAct(page)
+    dispatch(setPage(page));
   }
 
   //creamos la funcion para crear los cards en base al array acortado a mostrar
@@ -55,7 +56,7 @@ const Home = (props) => {
    //el useEffect nos ayuda a que cada vez que se produzca un cambio en el showAllDogs, se ejecute la funcion showAllDogs y se despache.
   useEffect(() => {
     dispatch(showAllDogs())
-  }, [ dispatch]);
+  }, [dispatch]);
    
    //creamos la funcion para despachar los actions
   const handleFilter = (event)=>{

@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './Search.module.css'
 import { useDispatch } from 'react-redux'
 import { getDogBreed, showAllDogs } from '../../redux/actions'
+import { setPage } from '../../redux/actions';
 
 const SearchBar = () => {
 
@@ -20,6 +21,9 @@ const SearchBar = () => {
     const handleSubmit = (event) => {
       event.preventDefault()
       dispatch(getDogBreed(breed));
+      setTimeout(() => {
+      dispatch(setPage(1)); // Establecer la página actual en 1 después de 1 segundo
+      }, 1000);
     }
 
     //creamos una funcion para manejar el evento de cancelar y mandar a llamar la accion de mostrar todos los dogs

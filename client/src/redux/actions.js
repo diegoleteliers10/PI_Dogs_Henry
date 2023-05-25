@@ -1,4 +1,4 @@
-import {SHOW_ALL, DETAIL_DOG, DOG_BREED, SHOW_TEMPS, FILTER_TEMPS, ORDERED_ABECE, ORDERED_WEIGHT, FILTER_BY_DATA, DELETE_DOG_SUCCESS} from "./action-types"
+import {SHOW_ALL, DETAIL_DOG, DOG_BREED, SHOW_TEMPS, FILTER_TEMPS, ORDERED_ABECE, ORDERED_WEIGHT, FILTER_BY_DATA, DELETE_DOG_SUCCESS, SET_PAGE} from "./action-types"
 import axios from "axios";
 
 //mostramos todos los perros
@@ -118,3 +118,11 @@ export const updateDog= async (payload)=>{
   const editedDog= {name:name, height:`${min_height} - ${max_height}`, weight:`${min_weight} - ${max_weight}`, life_span:life_span, temperaments:temperaments.join(', ')}
   await axios.put(`https://dogsapi-b2s8.onrender.com/dog/update/${idUpdate}`, editedDog)
 }
+
+//para setear las paginas
+export const setPage = (page) => {
+  return {
+    type: SET_PAGE,
+    payload: page
+  };
+};

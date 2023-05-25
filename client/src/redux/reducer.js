@@ -1,11 +1,12 @@
 
-import { DETAIL_DOG, DOG_BREED, FILTER_TEMPS, SHOW_ALL, SHOW_TEMPS, ORDERED_ABECE, ORDERED_WEIGHT, FILTER_BY_DATA, DELETE_DOG_SUCCESS, EDITED_DOG} from "./action-types"
+import { DETAIL_DOG, DOG_BREED, FILTER_TEMPS, SHOW_ALL, SHOW_TEMPS, ORDERED_ABECE, ORDERED_WEIGHT, FILTER_BY_DATA, DELETE_DOG_SUCCESS, EDITED_DOG, SET_PAGE} from "./action-types"
 
 const initialState= {
   allDogs: [],
   dogs:[],
   detail: [],
   allTemperaments:[],
+  pagAct:1
 }
 
 
@@ -153,6 +154,11 @@ const reducer= (state=initialState,action)=>{
             allDogs: action.payload
           };
 
+        case SET_PAGE:
+          return {
+            ...state,
+            pagAct: action.payload
+          };
 
     default:
       return {...state}

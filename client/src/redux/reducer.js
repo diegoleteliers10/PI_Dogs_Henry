@@ -135,7 +135,7 @@ const reducer= (state=initialState,action)=>{
                 filterDogsData.push(dog);
               }
             })
-          }
+          };
 
           return {
             ...state,

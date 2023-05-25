@@ -16,6 +16,7 @@ const Home = (props) => {
   const {temperamentos}=props
   //
   const dogs = useSelector(state => state.allDogs);
+  console.log(dogs)
   
   //seteamos la pagina actual en 1, gracias a nuestro state en redux
   const pagAct = useSelector(state => state.pagAct);
@@ -62,6 +63,9 @@ const Home = (props) => {
   const handleFilter = (event)=>{
     event.preventDefault();
     dispatch(filterTemps(event.target.value))
+    setTimeout(() => {
+      dispatch(setPage(1)); // Establecer la página actual en 1 después de 1 segundo
+    });
   }
   //creamos la funcion para despachar los actions
   const handleOrdendAbecedario = (event)=>{
@@ -81,7 +85,7 @@ const Home = (props) => {
 
         return (
     <div className={style.containerHome}>
-      { dogs.length === 0 ? <div className={style.loader}></div>
+      { !dogs.length ? <div className={style.loader}></div>
         :
         <div>
             <div className={style.cardsCont}>

@@ -12,7 +12,7 @@ const Landing = (props) => {
         <h2 className={style.subtiLanding}>In DoggyDeep you can find all about your best friend!</h2>
       </div>
       <div className={style.textContainer1} >
-        <p className={style.pLanding}>You are in the right place if you are looking for a new best friend and you want to know everything about him. Here you can learn all about your new canine friend.</p>
+        <p className={style.pLanding}>You are in the right place. Here you can learn all about your new canine friend.</p>
       </div>
         <Link to="/home">
             <button onClick={props.goHome} className={style.landingBbutton}>Look over a dog</button>
